@@ -37,11 +37,11 @@ jobs:
       with:
         path: .venv
         key: >
-          ${{ runner.os }}-${{ env.CACHE_NAME }}-python${{ matrix.python_version }}-${{ hashFiles('Pipfile.lock') }}
+          v2-${{ runner.os }}-${{ env.CACHE_NAME }}-python${{ matrix.python_version }}-${{ hashFiles('Pipfile.lock') }}
         # Fallbacks to partially restore cache
         restore-keys: |
-          ${{ runner.os }}-${{ env.CACHE_NAME }}-python${{ matrix.python_version }}-
-          ${{ runner.os }}-${{ env.CACHE_NAME }}-
+          v2-${{ runner.os }}-${{ env.CACHE_NAME }}-python${{ matrix.python_version }}-
+          v2-${{ runner.os }}-${{ env.CACHE_NAME }}-
     - name: Install dependencies
       if: steps.cache-venv.outputs.cache-hit != 'true'
       run: |
